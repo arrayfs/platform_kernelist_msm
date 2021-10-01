@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: configure
-      run: ./configure
+    - name: make CI
+      run: .drone.yml
       
     - name: Install dependencies
       run: make
