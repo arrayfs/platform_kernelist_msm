@@ -1,0 +1,19 @@
+kind: pipeline
+name: triton
+
+clone:
+        depth: 1
+
+steps:
+  - name: compile
+    image: thagoo/triton-scripts:gcc
+    environment:
+            TOKEN:
+                    from_secret: token
+            CID:
+                    from_secret: cid
+    commands:
+      - wget https://raw.githubusercontent.com/Thagoo/triton-scripts/gcc/compiler.sh
+      - chmod +x compiler.sh
+      - bash compiler.sh
+      
